@@ -1,0 +1,35 @@
+cabal-version:       2.4
+name:                GuessGame
+version:             0.1.0.0
+build-type:          Simple
+
+executable server
+  hs-source-dirs:      server
+  main-is:             Server.hs
+  build-depends:
+      base >=4.14 && <5,
+      network,
+      random,
+      bytestring,
+      text
+  default-language:    Haskell2010
+
+executable client
+  hs-source-dirs:      client
+  main-is:             Client.hs
+  build-depends:
+      base >=4.14 && <5,
+      threepenny-gui >= 0.8,
+      network,
+      bytestring,
+      text
+  default-language:    Haskell2010
+
+test-suite unit-tests
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             TestGame.hs
+  build-depends:
+      base >=4.14 && <5,
+      HUnit
+  default-language:    Haskell2010
